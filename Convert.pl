@@ -20,7 +20,9 @@ my $stmt = '/home/ubuntu/Documents/perl/parsing/pdfout11.pdf';
 
 open(FHR, '<', $stmt) or die "Failed to open file: $stmt";
 # You can then either read the file one line at a time...
-while(<FHR>) {
+
+my @lines=<FHR>;
+foreach(@lines) {
 print "$_";
 }
 
