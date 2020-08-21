@@ -38,20 +38,21 @@ sub main
 	{
 		print("$String");
 	}
-	elsif($String =~ /Bank Name(.*)/)
+	elsif($String =~ /^[A-Z]+(?:[ ])(?:[A-Z]*[ ])[A-Z]{4}(?:[ ][A-Z]*)/)
 	{
-		print("$String");
+		print("Bank Name: $String");
 	}
-	elsif($String =~ /Bank Address(.*)/)
+	elsif($String =~ /NEW EXCELSIOR CINEMA \/ OLD BAZAR\,KHADKI \/PUNE\,MAHARASHTRA \/ KHADKI \/ 411003/)
 	{
-		print("$String");
+		
+		print("Bank Address: $String");
 	}
 	elsif($String =~ /Folio No.(.*)/)
 	{
 		print("$String");
 	}
-
     } 
-    close(FHR); 
+    close(FHR);# m/(?s)(?<=haha)
 } 
 main(); 
+
