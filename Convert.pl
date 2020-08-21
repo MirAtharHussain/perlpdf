@@ -16,14 +16,42 @@ use v5.10;
 use strict;
 use warnings;
 
-my $stmt = '/home/ubuntu/Documents/perl/parsing/pdfout11.pdf';
 
-open(FHR, '<', $stmt) or die "Failed to open file: $stmt";
 # You can then either read the file one line at a time...
 
-my @lines=<FHR>;
-foreach(@lines) {
-print "$_";
-}
+sub main 
+{ 
+    
+    my $stmt='/home/ubuntu/Documents/perl/parsing/pdfout11.txt';
+    open(FHR, '<', $stmt) or die "Failed to open file: $stmt";
+    while(my $String = <FHR>) 
+    { 
+        if($String =~ /\b^[A-Z]{8}[ ][A-Z]{7}\b/) 
+        { 
+            print ("Name = $String \n"); 
+        }
+	elsif($String =~ /Statement Date(.*)/)
+	{
+		print("$String");
+	}
+	elsif($String =~ /E-Mail(.*)/)
+	{
+		print("$String");
+	}
+	elsif($String =~ /Bank Name(.*)/)
+	{
+		print("$String");
+	}
+	elsif($String =~ /Bank Address(.*)/)
+	{
+		print("$String");
+	}
+	elsif($String =~ /Folio No.(.*)/)
+	{
+		print("$String");
+	}
 
-close(FHR);
+    } 
+    close(FHR); 
+} 
+main(); 
