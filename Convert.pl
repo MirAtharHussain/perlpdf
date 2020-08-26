@@ -24,6 +24,7 @@ sub main
     
     my $stmt='/home/ubuntu/Documents/perl/parsing/pdfout11.txt';
     open(FHR, '<', $stmt) or die "Failed to open file: $stmt";
+    my $foo="NEW EXCELSIOR CINEMA OLD BAZAR,KHADKI PUNE,MAHARASHTRA  KHADKI  411003";
     while(my $String = <FHR>) 
     { 
         if($String =~ /\b^[A-Z]{8}[ ][A-Z]{7}\b/) 
@@ -42,7 +43,7 @@ sub main
 	{
 		print("Bank Name: $String");
 	}
-	elsif($String =~ /NEW EXCELSIOR CINEMA \/ OLD BAZAR\,KHADKI \/PUNE\,MAHARASHTRA \/ KHADKI \/ 411003/)
+	elsif($String =~ m/NEW EXCELSIOR CINEMA OLD BAZAR,KHADKI PUNE,MAHARASHTRA  KHADKI  411003/)
 	{
 		
 		print("Bank Address: $String");
@@ -52,6 +53,7 @@ sub main
 		print("$String");
 	}
     } 
+
     close(FHR);# m/(?s)(?<=haha)
 } 
 main(); 
